@@ -56,7 +56,7 @@ function getTopTenMovies(data) {
         movie_id: movie.id,
         title: movie.title,
         poster_image_url: movie.poster_path,
-        popularity_summary: movie.vote_average
+        popularity_summary: parseFloat(movie.vote_average.toFixed(1))
     }))
 }
 

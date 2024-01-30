@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="searchQuery" placeholder="Enter search query" />
+    <input v-model="searchQuery" placeholder="Enter movie title" />
     <button @click="search">Search</button>
   </div>
 </template>
@@ -20,5 +20,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 </style>

@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <h2>Movie Results</h2>
+  <h3 class="center-container">Search Results</h3>
+  <div class="center-container">
     <ul>
-      <li v-for="movie in movies" :key="movie.id">
-        {{ movie.title }} - {{ movie.popularity_summary }}
+      <li v-for="movie in movies" :key="movie.id" class="list-item">
+        <strong>{{ movie.title }}</strong>
+        <br>
+        <span class="tab">Rating: {{ movie.popularity_summary }}</span>
       </li>
     </ul>
   </div>
@@ -17,5 +19,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 </style>

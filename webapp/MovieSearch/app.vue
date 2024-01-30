@@ -1,6 +1,11 @@
 <template>
-  <div id="app">
+  <h1 id="app" class="title">
+    My Movie Search
+  </h1>
+  <div id="app" class="center-container">
     <Search @search="fetchMovies" />
+  </div>
+  <div id="app">
     <MovieResults :movies="movies" />
   </div>
 </template>
@@ -35,4 +40,11 @@ export default {
 </script>
 
 <style>
+@import "styles.css";
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, #505050, #000000);
+  color: white;
+}
 </style>
