@@ -57,7 +57,8 @@ function getTopTenMovies(data) {
     return topTenMovies.map(movie => ({
         movie_id: movie.id,
         title: movie.title,
-        poster_image_url: `${imagePrefix}${movie.poster_path}`,
+        // TODO: implement default image
+        poster_image_url: movie.poster_path ? `${imagePrefix}${movie.poster_path}` : "res/default_poster.jpg",
         popularity_summary: parseFloat(movie.vote_average.toFixed(1))
     }))
 }

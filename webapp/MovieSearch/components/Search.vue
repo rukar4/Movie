@@ -1,23 +1,27 @@
 <template>
-  <div>
-    <input v-model="searchQuery" placeholder="Enter movie title" />
-    <button @click="search">Search</button>
-  </div>
+  <form @submit.prevent="search" class="search-form">
+    <input
+        v-model="searchQuery"
+        placeholder="Enter movie title"
+        class="search-input"
+    />
+    <button @click="search" class="button">Search</button>
+  </form>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      searchQuery: '',
-    };
+      searchQuery: ''
+    }
   },
   methods: {
     search() {
-      this.$emit('search', this.searchQuery);
-    },
-  },
-};
+      this.$emit('search', this.searchQuery)
+    }
+  }
+}
 </script>
 
 <style>
