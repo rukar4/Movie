@@ -5,8 +5,8 @@ require('dotenv').config()
 
 const PORT = 8080;
 const TMDB_URL = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1`
-const apiKey = process.env.API_KEY
-const apiToken= process.env.API_TOKEN
+const apiKey = process.env.TMDB_API_KEY
+const apiToken= process.env.TMDB_API_TOKEN
 
 movieServer.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
@@ -55,7 +55,7 @@ function getTopTenMovies(data) {
     return topTenMovies.map(movie => ({
         movie_id: movie.id,
         title: movie.title,
-        poster_image_url: movie.poster_path,
+        poster_image_url: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
         popularity_summary: parseFloat(movie.vote_average.toFixed(1))
     }))
 }
