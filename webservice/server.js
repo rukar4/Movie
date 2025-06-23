@@ -8,6 +8,8 @@ const TMDB_URL = `https://api.themoviedb.org/3/search/movie?include_adult=false&
 const apiKey = process.env.TMDB_API_KEY
 const apiToken= process.env.TMDB_API_TOKEN
 
+const imagePrefix = 'https://image.tmdb.org/t/p/w500'
+
 movieServer.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
     res.header('Access-Control-Allow-Methods', 'GET')
@@ -55,7 +57,7 @@ function getTopTenMovies(data) {
     return topTenMovies.map(movie => ({
         movie_id: movie.id,
         title: movie.title,
-        poster_image_url: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+        poster_image_url: `${imagePrefix}${movie.poster_path}`,
         popularity_summary: parseFloat(movie.vote_average.toFixed(1))
     }))
 }

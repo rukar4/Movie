@@ -29,6 +29,7 @@ export default {
   methods: {
     async fetchMovies(searchQuery) {
       try {
+        // TODO: SANITIZE searchQuery
         const response = await axios.get(`http://localhost:8080/movie?search=${searchQuery}`)
         this.movies = response.data.results
       } catch (error) {
@@ -36,7 +37,7 @@ export default {
       }
     },
   },
-};
+}
 </script>
 
 <style>
@@ -44,7 +45,7 @@ export default {
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(to bottom, #505050, #000000);
+  background: linear-gradient(to bottom, #420057, #000000);
   color: white;
 }
 </style>
