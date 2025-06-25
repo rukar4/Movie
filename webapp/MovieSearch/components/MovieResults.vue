@@ -3,7 +3,7 @@
     <h2>Top TMDB Results for "{{ query }}"</h2>
     <div class="card-grid">
       <MovieCard v-for="movie in movies"
-                 :key="movie.id"
+                 :movieId="movie.movie_id"
                  :title="movie.title"
                  :rating="movie.popularity_summary"
                  :poster-path="movie.poster_image_url"
@@ -21,7 +21,3 @@ defineProps({
   query: String
 })
 </script>
-
-<style>
-@import "../styles.css";
-</style>

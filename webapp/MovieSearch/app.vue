@@ -31,7 +31,7 @@ export default {
     async fetchMovies(searchQuery) {
       try {
         // TODO: SANITIZE searchQuery
-        const response = await axios.get(`http://localhost:8080/movie?search=${searchQuery}`)
+        const response = await axios.get(`http://localhost:8080/top_movies?search=${searchQuery}`)
         this.movies = response.data.results
         this.query = searchQuery
       } catch (error) {
