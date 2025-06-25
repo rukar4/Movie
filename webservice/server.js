@@ -8,7 +8,7 @@ const TMDB_URL = `https://api.themoviedb.org/3`
 const apiKey = process.env.TMDB_API_KEY
 const apiToken= process.env.TMDB_API_TOKEN
 
-const imagePrefix = 'https://image.tmdb.org/t/p/w500'
+const imagePrefix = 'https://image.tmdb.org/t/p'
 
 const maxResults = 10;
 
@@ -91,7 +91,7 @@ function getTopMovies(data) {
         movie_id: movie.id,
         title: movie.title,
         // TODO: implement default image
-        poster_image_url: movie.poster_path ? `${imagePrefix}${movie.poster_path}` : "",
+        poster_image_url: movie.poster_path ? `${imagePrefix}/w500${movie.poster_path}` : "",
         popularity_summary: parseFloat(movie.vote_average.toFixed(1))
     }))
 }
@@ -114,8 +114,8 @@ function parseMovieDetails(movie) {
         runtime_minutes: runtimeMinutes,
         genres: movie.genres.map(genre => genre.name) || [],
         // TODO: implement default image
-        poster_image_url: movie.poster_path ? `${imagePrefix}${movie.poster_path}` : "",
-        backdrop_image_url: movie.backdrop_path ? `${imagePrefix}${movie.backdrop_path}` : "",
+        poster_image_url: movie.poster_path ? `${imagePrefix}/w500${movie.poster_path}` : "",
+        backdrop_image_url: movie.backdrop_path ? `${imagePrefix}/original${movie.backdrop_path}` : "",
         popularity_summary: parseFloat(movie.vote_average.toFixed(1))
     }
 }
