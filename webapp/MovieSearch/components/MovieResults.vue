@@ -1,15 +1,13 @@
 <template>
   <div v-if="movies.length > 0">
     <h2>Top TMDB Results for "{{ query }}"</h2>
-    <div class="center-container">
-      <div class="card-grid">
-        <MovieCard v-for="movie in movies"
-                   :key="movie.id"
-                   :title="movie.title"
-                   :rating="movie.popularity_summary"
-                   :poster-path="movie.poster_image_url"
-        />
-      </div>
+    <div class="card-grid">
+      <MovieCard v-for="movie in movies"
+                 :key="movie.id"
+                 :title="movie.title"
+                 :rating="movie.popularity_summary"
+                 :poster-path="movie.poster_image_url"
+      />
     </div>
   </div>
   <div v-else>

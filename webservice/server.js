@@ -10,6 +10,8 @@ const apiToken= process.env.TMDB_API_TOKEN
 
 const imagePrefix = 'https://image.tmdb.org/t/p/w500'
 
+const maxResults = 10;
+
 movieServer.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
     res.header('Access-Control-Allow-Methods', 'GET')
@@ -40,7 +42,7 @@ movieServer.get('/movie', async (req, res) => {
 
         const tmdbResponse = await axios.get(requestURL, config)
 
-        const topTenMovies = getTopTenMovies(tmdbResponse.data.results)
+        const topTenMovies = getTopMovies(tmdbResponse.data.results)
 
         res.json({results: topTenMovies})
     } catch (error) {
@@ -51,10 +53,10 @@ movieServer.get('/movie', async (req, res) => {
     }
 })
 
-function getTopTenMovies(data) {
+function getTopMovies(data) {
     const sortedMovies = data.sort((a, b) => b.vote_average - a.vote_average)
-    const topTenMovies = sortedMovies.slice(0, 10)
-    return topTenMovies.map(movie => ({
+    const topMovies = sortedMovies.slice(0, maxResults)
+    return topMovies.map(movie => ({
         movie_id: movie.id,
         title: movie.title,
         // TODO: implement default image

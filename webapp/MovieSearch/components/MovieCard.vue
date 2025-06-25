@@ -19,8 +19,9 @@ function onClick() {
     <div class="hover-info">
       <div class="hover-content">
         <img :src="posterPath" alt="Movie Poster" style="width: 60%; height: auto; border-radius: 4px;">
-        <h4>{{ title }}</h4>
-        <p>TMDB Popularity Score: {{ rating }}</p>
+        <h4 class="hover-title">{{ title }}</h4>
+        <p class="hover-text">TMDB Popularity Score</p>
+        <p class="hover-text">{{ rating }} / 10</p>
       </div>
     </div>
   </div>

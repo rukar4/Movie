@@ -44,13 +44,4 @@ export default {
 
 <style>
 @import "styles.css";
-body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(to bottom, #420057, #000000);
-  padding-left:  25rem;
-  padding-right: 25rem;
-  color: white;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
 </style>
