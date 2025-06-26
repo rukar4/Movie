@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL: '/movie-search/',
+    baseURL: '/MovieSearch/',
   },
   devtools: { enabled: false }
 })
