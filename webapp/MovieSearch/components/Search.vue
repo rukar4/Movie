@@ -5,7 +5,7 @@
         placeholder="Enter movie title"
         class="search-input"
     />
-    <button @click="search" class="button">Search</button>
+    <button @click="search" class="button">Search Movies</button>
   </form>
 </template>
 

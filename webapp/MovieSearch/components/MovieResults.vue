@@ -42,3 +42,9 @@ async function fetchMovieDetails(movieId) {
 }
 
 </script>
+
+<style scoped>
+h2 {
+  padding-left: clamp(1rem, 10vw, 4rem);
+}
+</style>
