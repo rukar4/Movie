@@ -12,10 +12,12 @@
     </div>
     <footer>
       <hr>
+      <p>Made by
+        <a href="https://www.linkedin.com/in/reid-merrell-ai-graphics-developer/" target="_blank" rel="noopener noreferrer">Reid Merrell</a>
+      </p>
       <p class="footer-text">Powered by
         <a href="https://www.themoviedb.org/?language=en-US" target="_blank" rel="noopener noreferrer">TMDB</a>
       </p>
-      <p>Made by Reid Merrell</p>
     </footer>
   </div>
 </template>
@@ -24,6 +26,7 @@
 import axios from 'axios'
 import Search from '@/components/Search.vue'
 import MovieResults from '@/components/MovieResults.vue'
+const config = useRuntimeConfig()
 
 export default {
   name: 'App',
@@ -42,13 +45,13 @@ export default {
       try {
         const trimmed = searchQuery.trim()
 
-        if (trimmed.length > 100) {
-          alert('Search query is too long. Please limit to 100 characters.')
+        if (trimmed.length > 100 || trimmed.length === 0) {
+          alert('Please enter a valid movie title (1-100 characters).')
           return
         }
 
         const encodedQuery = encodeURIComponent(trimmed)
-        const response = await axios.get(`http://localhost:8080/top_movies?search=${encodedQuery}`)
+        const response = await axios.get(`${config.public.apiUrl}/top_movies?search=${encodedQuery}`)
 
         console.log(encodedQuery)
 
