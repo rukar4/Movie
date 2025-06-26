@@ -26,7 +26,6 @@
 import axios from 'axios'
 import Search from '@/components/Search.vue'
 import MovieResults from '@/components/MovieResults.vue'
-const config = useRuntimeConfig()
 
 export default {
   name: 'App',
@@ -51,7 +50,7 @@ export default {
         }
 
         const encodedQuery = encodeURIComponent(trimmed)
-        const response = await axios.get(`${config.public.apiUrl}/top_movies?search=${encodedQuery}`)
+        const response = await axios.get(`${this.$config.public.apiUrl}/top_movies?search=${encodedQuery}`)
 
         console.log(encodedQuery)
 
