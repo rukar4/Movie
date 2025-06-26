@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   movie: Object,
 })
 
@@ -10,7 +10,13 @@ const props = defineProps({
     <div class="details-card"
          :style="movie.backdrop_image_url ? `background-image: url(${movie.backdrop_image_url})` : ''">
       <div class="details-info" :style="movie.backdrop_image_url ? 'background-color: rgba(0, 0, 0, 0.85);' : ''">
-        <button class="close-button" @click="$emit('close')">✖</button>
+        <button
+            class="button"
+            @click="$emit('close')"
+            style="position: absolute; padding: 0.6rem 0.8rem; top: 1rem; right: 1rem;">
+          ✖
+        </button>
+
         <img v-if="movie.poster_image_url" :src="movie.poster_image_url" alt="Movie Poster" class="details-poster">
         <div>
           <h2>{{ movie.title }}</h2>
@@ -44,7 +50,7 @@ const props = defineProps({
   width: 60%;
   height: 60%;
   min-height: 300px;
-  background-color: #420057;
+  background-color: #5b3b69;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -61,7 +67,7 @@ const props = defineProps({
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 1rem;
+  padding: 2rem;
   height: 100%;
   overflow: auto;
   flex: 1;
@@ -78,13 +84,5 @@ const props = defineProps({
   max-width: 30%;
   border-radius: 8px;
   object-fit: cover;
-}
-
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.2rem;
-  cursor: pointer;
 }
 </style>
