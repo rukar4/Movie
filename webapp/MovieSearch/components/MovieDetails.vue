@@ -25,7 +25,7 @@ defineProps({
           <p><strong>Runtime: </strong> {{ movie.runtime_hours ? `${movie.runtime_hours}h` : '' }}
             {{ movie.runtime_minutes }}m</p>
           <p><strong>Rating: </strong> {{ movie.popularity_summary }} / 10</p>
-          <p><strong>Genres: </strong> {{ movie.genres.join(', ') }}</p>
+          <p><strong>Genres: </strong> {{ movie.genres?.length > 0 ? movie.genres.join(', ') : 'None listed' }}</p>
         </div>
       </div>
     </div>
