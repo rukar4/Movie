@@ -1,75 +1,13 @@
-# Nuxt 3 Minimal Starter
+# Movie Search Client
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a simple movie search client that allows users to search for movies by title. It uses the Movie Database (TMDB) 
+API to fetch movie data.
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Deployment
+To deploy the Movie Search Client, generate the static files using ```npm run generate```. In the generated `.output/public`
+directory, add an empty file named `.nojekyll` to force GitHub Pages to serve the static files correctly. Then, push the 
+contents of the `.output/public` directory using
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+npx gh-pages --dist .\webapp\MovieSearch\.output\public\ --branch gh-pages --message "Deploy static site with .nojekyll" --dotfiles
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
