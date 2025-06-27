@@ -4,14 +4,14 @@
       <h1 class="title">
         My Movie Search
       </h1>
-      <Search @search="fetchMovies" class="search-banner"/>
+      <Search @search="fetchMovies" :loading="loading" class="search-banner"/>
     </header>
-    <div v-if="!loading" style="padding-top: min(1px, 0.1vh);">
+    <div v-if="loading" class="loading">
+      <div class="spinner"/>
+    </div>
+    <div v-else style="padding-top: min(1px, 0.1vh);">
       <hr>
       <MovieResults :movies="movies" :query="query"/>
-    </div>
-    <div v-else class="loading">
-      <div class="spinner"/>
     </div>
     <footer>
       <hr>

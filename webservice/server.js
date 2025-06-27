@@ -142,7 +142,7 @@ function getTopMovies(data) {
     movie_id: movie.id,
     title: movie.title,
     poster_image_url: movie.poster_path ? `${imagePrefix}/w500${movie.poster_path}` : "",
-    popularity_summary: parseFloat(movie.vote_average.toFixed(1))
+    popularity_summary: movie.vote_average ? parseFloat(movie.vote_average.toFixed(1)) : 0
   }))
 }
 

@@ -5,12 +5,18 @@
         placeholder="Enter movie title"
         class="search-input"
     />
-    <button type="submit" class="button">Search Movies</button>
+    <button type="submit" class="button" :disabled="loading">{{ loading ? 'Searching' : 'Search Movies' }}</button>
   </form>
 </template>
 
 <script>
 export default {
+  props: {
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       searchQuery: ''
