@@ -2,7 +2,17 @@
 export default defineNuxtConfig({
   ssr: false,
   app: {
-    baseURL: '/Movie/'
+    baseURL: '/Movie/',
+    head: {
+      title: 'My Movie Search',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'A simple movie search application' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/jpeg', href: '/default_poster.jpg' }
+      ]
+    }
   },
   nitro: {
     preset: 'static'

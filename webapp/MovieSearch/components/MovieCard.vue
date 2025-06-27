@@ -16,12 +16,12 @@ function onClick() {
 <template>
   <div class="poster-container" @click="onClick">
     <img v-if="posterPath" :src="posterPath" alt="Movie Poster" class="poster">
-    <img v-else src="../res/default_poster.jpg" alt="Poster" class="poster" style="object-fit: contain">
+    <img v-else src="../public/default_poster.jpg" alt="Poster" class="poster" style="object-fit: contain">
 
     <div class="hover-info">
       <div class="hover-content">
         <img v-if="posterPath" :src="posterPath" alt="Movie Poster" class="mini-poster">
-        <img v-else src="../res/default_poster.jpg" alt="Poster" class="mini-poster" style="object-fit: contain">
+        <img v-else src="../public/default_poster.jpg" alt="Poster" class="mini-poster" style="object-fit: contain">
 
         <h4 class="hover-title">{{ title }}</h4>
 
