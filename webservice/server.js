@@ -6,7 +6,7 @@ require('dotenv').config()
 const PORT = 8080;
 const TMDB_URL = 'https://api.themoviedb.org/3'
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions'
-const clientUrl = process.env.LOCAL ? 'http://localhost:3000' : 'https://rukar4.github.io/Movie/'
+const clientUrl = process.env.LOCAL ? 'http://localhost:3000' : 'https://rukar4.github.io'
 
 const openaiToken = process.env.OPENAI_API_KEY
 const tmdbToken = process.env.TMDB_API_TOKEN
@@ -17,11 +17,11 @@ const maxResults = 10;
 
 movieServer.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', clientUrl)
-  res.header('Access-Control-Allow-Methods', 'GET')
+  res.header('Access-Control-Allow-Methods', 'GET,OPTIONS')
   res.header('Access-Control-Allow-Headers', 'Content-Type')
   res.header('Access-Control-Allow-Credentials', true)
-  next();
-});
+  next()
+})
 
 movieServer.get('/health', (req, res) => {
   res.send('healthy')
