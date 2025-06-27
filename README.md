@@ -1,41 +1,72 @@
 # Movie
 
 This is a simple app that displays a list of movies with their titles and ratings. The webservice folder holds the
-code for the backend, and the webapp folder holds the code for the frontend.
+code for the backend, and the webapp folder holds the code for the frontend. Special thanks
+to [TMDB](https://www.themoviedb.org/)
+for providing the movie data on a public API to make this project possible.
+___
 
-## Prerequisites
+## Running the Application Locally
+
+### Prerequisites
 
 - Node.js and npm should be installed on your machine.
 
-## Install dependencies
+### Install dependencies
 
-You will need to install dependencies for the client and the server. Use npm install for both cases.
+You will need to install dependencies for the client and the server.
 
-- Install dependencies for the server in the root directory.
-- Install dependencies for the client in the [MovieSearch directory](webapp/MovieSearch).
+- Run `npm install` for the server in the root directory.
+- Run `npm install` for the client in the [MovieSearch directory](webapp/MovieSearch).
 
-## Running the server
+### Running the server
+
+#### Environment Variables
+
+| Variable       | Description                                                                                                             |
+|----------------|-------------------------------------------------------------------------------------------------------------------------|
+| TMDB_API_KEY   | The API key for the TMDB API. You can get one by creating an account on [TMDB](https://www.themoviedb.org/).            |
+| OPENAI_API_KEY | The API key for the OpenAI API. You can get one by creating an account on [OpenAI](https://platform.openai.com/signup). |
+| PORT           | The port on which the server will run. Default is 8080.                                                                 |
 
 Run `node server.js` in the [webservice directory](./webservice).
 
-## Running the client
+### Running the client
+
+#### Environment Variables
+
+| Variable | Description                                                                                                             |
+|----------|-------------------------------------------------------------------------------------------------------------------------|
+| API_URL  | The URL of the API server. Default is `http://localhost:8080`. This should point to the server running on your machine. |
 
 Run `npm run dev` in the [MovieSearch directory](webapp/MovieSearch).
+___
 
-## Comments
+## Movie Search Client
 
-I thoroughly enjoyed this challenge, even though I ended up running out of time to implement everything I wanted to.
-Although I have debugged many of BYU's APIs and frontend services, I have never had to build something from the ground
-up like this.
+This is a simple movie search client that allows users to search for movies by title. It uses the Movie Database (TMDB)
+API to fetch movie data.
 
-If I were to come back to this, I would have left myself more time for the frontend development. I ran out
-of time before I could make it look how I wanted. The goal was to have the list be a series of containers with the
-poster on the left and the ratings on the right.
+### Deployment
 
-I didn't quite pace myself as well as I should have. I also could not figure out how to bring in the pictures from the
-TMDB. I copied the provided path, but none of the combinations I tried with the base URL worked, so I'm not sure where
-they were supposed to take me to. One thing that I will definitely be doing is figuring out how to point both the client
-and the server to the same node_modules repository. I couldn't figure it out because I was on a time crunch when I made
-it to that point, but I will revisit that after I submit this challenge.
+To deploy the Movie Search Client, first run ```npm run generate``` in the [MovieSearch directory](webapp/MovieSearch)
+to generate the
+static files. This will create a `.output/public` directory, and add an empty file `.nojekyll` to it. This allows GitHub
+Pages to serve the static files correctly. Then, run ```npm run deploy``` in
+the [MovieSearch directory](webapp/MovieSearch) or
+```npm run deploy-client``` from the root directory to deploy the web app.
+___
 
-In any case, it was a great challenge and I hope this demonstrates my capabilities. Best of luck to you hiring officers!
+## Movie Search Server
+
+This is a simple movie search server that provides an API for the Movie Search Client. It consumes the TMDB API to fetch
+movie data and serves it to the client.
+
+### Deployment
+
+The server is deployed on Render. Once the `master` branch is pushed, Render will automatically build and deploy the
+server.
+
+> Note: The OpenAI API key is used for generating movie summaries. However, the deployed server does not currently
+> have an active license for OpenAI, so it cannot generate summaries.
+___
