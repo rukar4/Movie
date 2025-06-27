@@ -95,6 +95,11 @@ defineProps({
 }
 
 @media (max-width: 768px) {
+  .details-card {
+    width: 90%;
+    height: 90%;
+  }
+
   .details-info {
     flex-direction: column;
     align-items: center;

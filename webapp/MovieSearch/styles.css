@@ -223,8 +223,12 @@ footer {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-sizing: unset;
-        padding: 1rem 0 0;
+        height: auto;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 300px;
     }
 
     .search-form {
@@ -237,5 +241,20 @@ footer {
         margin-left: 0;
         width: 100%;
         justify-content: center;
+    }
+}
+
+@media (max-width: 360px) {
+    header {
+        padding: 0.5rem;
+        height: auto;
+    }
+
+    .search-banner {
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
     }
 }
