@@ -3,10 +3,14 @@ const axios = require('axios')
 const movieServer = express();
 require('dotenv').config()
 
-const PORT = 8080;
+const PORT = process.env.PORT || 80;
 const TMDB_URL = 'https://api.themoviedb.org/3'
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions'
-const clientUrl = process.env.LOCAL ? 'http://localhost:3000' : 'https://rukar4.github.io'
+
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://rukar4.github.io'
+]
 
 const openaiToken = process.env.OPENAI_API_KEY
 const tmdbToken = process.env.TMDB_API_TOKEN
@@ -16,7 +20,12 @@ const imagePrefix = 'https://image.tmdb.org/t/p'
 const maxResults = 10;
 
 movieServer.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', clientUrl)
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+
   res.header('Access-Control-Allow-Methods', 'GET,OPTIONS')
   res.header('Access-Control-Allow-Headers', 'Content-Type')
   res.header('Access-Control-Allow-Credentials', true)
