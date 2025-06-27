@@ -6,9 +6,12 @@
       </h1>
       <Search @search="fetchMovies" class="search-banner"/>
     </header>
-    <div style="padding-top: min(1px, 0.1vh);">
+    <div v-if="!loading" style="padding-top: min(1px, 0.1vh);">
       <hr>
       <MovieResults :movies="movies" :query="query"/>
+    </div>
+    <div v-else class="loading">
+      <div class="spinner"/>
     </div>
     <footer>
       <hr>
@@ -36,29 +39,32 @@ export default {
   data() {
     return {
       movies: [],
-      query: ""
+      query: "",
+      loading: false
     }
   },
   methods: {
     async fetchMovies(searchQuery) {
+      this.loading = true
       try {
         const trimmed = searchQuery.trim()
 
         if (trimmed.length > 100 || trimmed.length === 0) {
           alert('Please enter a valid movie title (1-100 characters).')
+          this.loading = false
           return
         }
 
         const encodedQuery = encodeURIComponent(trimmed)
         const response = await axios.get(`${this.$config.public.apiUrl}/top_movies?search=${encodedQuery}`)
 
-        console.log(encodedQuery)
-
         this.movies = response.data.results
         this.query = trimmed
       } catch (error) {
+        alert('Error fetching movies. Please try again later.')
         console.error('Error fetching movies:', error)
       }
+      this.loading = false
     },
   },
 }

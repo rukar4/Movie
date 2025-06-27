@@ -1,4 +1,7 @@
 <template>
+  <div v-if="loading" class="dark-overlay">
+    <div class="spinner"/>
+  </div>
   <div v-if="movies.length > 0">
     <h2>Top TMDB Results for "{{ query }}"</h2>
     <div class="card-grid">
@@ -31,18 +34,19 @@ defineProps({
 })
 
 const selectedMovie = ref(null)
+const loading = ref(false)
 
 async function fetchMovieDetails(movieId) {
+  loading.value = true
   try {
     const response = await axios.get(`${config.public.apiUrl}/movie/${movieId}`)
-    console.log(response.data)
-
     selectedMovie.value = response.data
   } catch (error) {
+    alert('Error fetching movie details. Please try again later.')
     console.error('Error fetching movie details:', error)
   }
+  loading.value = false
 }
-
 </script>
 
 <style scoped>
