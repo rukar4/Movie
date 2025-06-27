@@ -6,7 +6,7 @@
       </h1>
       <Search @search="fetchMovies" class="search-banner"/>
     </header>
-    <div>
+    <div style="padding-top: min(1px, 0.1vh);">
       <hr>
       <MovieResults :movies="movies" :query="query"/>
     </div>

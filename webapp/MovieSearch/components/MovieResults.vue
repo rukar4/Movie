@@ -49,4 +49,11 @@ async function fetchMovieDetails(movieId) {
 h2 {
   padding-left: clamp(1rem, 10vw, 4rem);
 }
+
+@media (max-width: 768px) {
+  h2 {
+    text-align: center;
+    padding: 0;
+  }
+}
 </style>

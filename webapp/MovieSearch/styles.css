@@ -11,6 +11,10 @@ body {
     background: linear-gradient(to bottom, #420057, #000000);
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 h1 {
     margin-top: 0;
 }
@@ -207,4 +211,31 @@ footer {
 .poster-container:hover .hover-info {
     opacity: 1;
     transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding-left: .5rem;
+        padding-right: 0.5rem;
+    }
+
+    .banner {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: unset;
+        padding: 1rem 0 0;
+    }
+
+    .search-form {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    .search-banner {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
 }
