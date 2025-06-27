@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'A simple movie search application' }
       ],
       link: [
-        { rel: 'icon', type: 'image/jpeg', href: '/default_poster.jpg' }
+        { rel: 'icon', type: 'image/jpeg', href: '/Movie/default_poster.jpg' }
       ]
     }
   },
