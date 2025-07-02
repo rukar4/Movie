@@ -8,6 +8,7 @@
     </header>
     <div v-if="loading" class="loading">
       <div class="spinner"/>
+      <p v-if="showServerStartupMessage">Waking up the server — this may take a few seconds.</p>
     </div>
     <div v-else style="padding-top: min(1px, 0.1vh);">
       <hr>
@@ -20,6 +21,8 @@
       </p>
       <p class="footer-text">Powered by
         <a href="https://www.themoviedb.org/?language=en-US" target="_blank" rel="noopener noreferrer">TMDB</a>
+        and
+        <a href="https://render.com/" target="_blank" rel="noopener noreferrer">Render</a>
       </p>
     </footer>
   </div>
@@ -40,12 +43,21 @@ export default {
     return {
       movies: [],
       query: "",
-      loading: false
+      loading: false,
+      showServerStartupMessage: false
     }
   },
   methods: {
     async fetchMovies(searchQuery) {
+      let timeoutId = null
+
       this.loading = true
+      this.showServerStartupMessage = false
+
+      timeoutId = setTimeout(() => {
+        this.showServerStartupMessage = true
+      }, 2500)
+
       try {
         const trimmed = searchQuery.trim()
 
@@ -63,8 +75,11 @@ export default {
       } catch (error) {
         alert('Error fetching movies. Please try again later.')
         console.error('Error fetching movies:', error)
+      } finally {
+        this.loading = false
+        clearTimeout(timeoutId)
+        this.showServerStartupMessage = false
       }
-      this.loading = false
     },
   },
 }
