@@ -4,6 +4,8 @@ This is a simple app that displays a list of movies with their titles and rating
 code for the backend, and the webapp folder holds the code for the frontend. Special thanks
 to [TMDB](https://www.themoviedb.org/)
 for providing the movie data on a public API to make this project possible.
+
+Access the client [here](https://rukar4.github.io/Movie/).
 ___
 
 ## Running the Application Locally
