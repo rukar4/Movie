@@ -55,8 +55,7 @@ API to fetch movie data.
 To deploy the Movie Search Client, first run ```npm run generate``` in the [MovieSearch directory](webapp/MovieSearch)
 to generate the
 static files. This will create a `.output/public` directory, and add an empty file `.nojekyll` to it. This allows GitHub
-Pages to serve the static files correctly. Then, run ```npm run deploy``` in
-the [MovieSearch directory](webapp/MovieSearch) or
+Pages to serve the static files correctly. Then, run 
 ```npm run deploy-client``` from the root directory to deploy the web app.
 ___
 

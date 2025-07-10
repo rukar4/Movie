@@ -8,7 +8,7 @@
     </header>
     <div v-if="loading" class="loading">
       <div class="spinner"/>
-      <p v-if="showServerStartupMessage">Waking up the server — this may take a few seconds.</p>
+      <p v-if="showServerStartupMessage">Waking up the server — this may take a minute.</p>
     </div>
     <div v-else style="padding-top: min(1px, 0.1vh);">
       <hr>
@@ -19,10 +19,13 @@
       <p>Made by
         <a href="https://www.linkedin.com/in/reid-merrell-ai-graphics-developer/" target="_blank" rel="noopener noreferrer">Reid Merrell</a>
       </p>
-      <p class="footer-text">Powered by
+      <p>Powered by
         <a href="https://www.themoviedb.org/?language=en-US" target="_blank" rel="noopener noreferrer">TMDB</a>
         and
         <a href="https://render.com/" target="_blank" rel="noopener noreferrer">Render</a>
+      </p>
+      <p>Visit my portfolio
+        <a href="https://rukar4.github.io/" target="_blank" rel="noopener noreferrer">here</a>
       </p>
     </footer>
   </div>
